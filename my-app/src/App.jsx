@@ -1,11 +1,21 @@
-import './App.css'
+import './App.css';
+import Header from './components/Header.jsx';
+import Footer from './components/Footer.jsx';
+import Registration from './components/Registration.jsx';
+import './components/Header.css';
 function App() {
 
   return (
-    <div>
-    <h1>this is my first page</h1>
-    <h2>this is beautiful</h2>
-    </div>
+    <>
+
+    <Header title="My First React App"/>
+    
+
+   
+    <Registration/>
+    <Footer/>
+    
+    </>
   )
 }
 
