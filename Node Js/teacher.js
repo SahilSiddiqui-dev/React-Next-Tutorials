@@ -54,7 +54,7 @@ router.post("/", (req, res) => {
 router.patch("/:id", (req, res) => {
     const id = parseInt(req.params.id);
     const teacher = teachers.find(t => t.id === id);
-    if(!teacher) res.status(404).json({message : "Teacher was not found"});
+    if(!teacher) return res.status(404).json({message : "Teacher was not found"});
     teacher.subject = req.body.subject;
     res.status(200).json({ message : "Skill updated"})
 
@@ -63,13 +63,13 @@ router.patch("/:id", (req, res) => {
 router.put("/:id", (req, res) => {
     const id = parseInt(req.params.id);
     const teacher = teachers.find(t => t.id === id);
-    if(!teacher) res.status(404).json({message : "Teacher was not found"});
+    if(!teacher) return res.status(404).json({message : "Teacher was not found"});
     if(!req.body.name || !req.body.subject) {
-        res.status(404).json({message : "Name OR Subject is not given"});
+        return res.status(404).json({message : "Name OR Subject is not given"});
     }
     teacher.name = req.body.name;
     teacher.subject = req.body.subject;
-    res.status(404).json({message : "Data is Updated"})
+    res.status(200).json({message : "Data is Updated"})
 })
 
 module.exports = router;
